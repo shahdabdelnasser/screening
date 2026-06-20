@@ -5,6 +5,7 @@ class InputData(BaseModel):
     AnxietSev_23: int = Field(..., ge=0, le=3)
     learning_23: int = Field(..., ge=0, le=1)
     ASDMed_23: int = Field(..., ge=0, le=1)
+    
     K8Q21: int = Field(..., ge=0, le=3)
     DevDelay_23: int = Field(..., ge=0, le=1)
     ReptGrade_23: int = Field(..., ge=0, le=1)
@@ -14,7 +15,7 @@ class InputData(BaseModel):
     K2Q32A: int = Field(..., ge=0, le=1)
     ACE11: int = Field(..., ge=0, le=1)
     K7Q83_R: int = Field(..., ge=0, le=1)
-    ACEmhealth_23: int = Field(..., ge=0, le=1)
+    
     behavior_23: int = Field(..., ge=0, le=3)
     
 
@@ -28,16 +29,15 @@ class InputData(BaseModel):
     SchlMiss_23: int = Field(..., ge=0, le=3)
     ACE6: int = Field(..., ge=0, le=1)
     bullied_23: int = Field(..., ge=0, le=1)
-    ACEincome2_23: int = Field(..., ge=0, le=1)
+    
     LowInterest_23: int = Field(..., ge=0, le=1)
     DailyAct_23: int = Field(..., ge=0, le=1)
     binge_23: int = Field(..., ge=0, le=1)
-    ACEdrug_23: int = Field(..., ge=0, le=1)
+    
     SC_SEX: int = Field(..., ge=0, le=1)
     PickyEat_23: int = Field(..., ge=0, le=1)
-    MEMORYCOND: int = Field(..., ge=0, le=1)
     SpeechSev_23: int = Field(..., ge=0, le=3)
-    ACEincome_23: int = Field(..., ge=0, le=1)
+    
     bully_23: int = Field(..., ge=0, le=1)
     DevDelSev_23: int = Field(..., ge=0, le=3)
     DepresSev_23: int = Field(..., ge=0, le=3)
