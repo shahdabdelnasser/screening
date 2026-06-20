@@ -1,0 +1,23 @@
+from pydantic import BaseModel, Field
+
+class InputData(BaseModel):
+    SchlEngage_23: int = Field(..., ge=0, le=2)
+    ACE2more_23: int = Field(..., ge=0, le=1)
+    AnxietSev_23: int = Field(..., ge=0, le=3)
+    learning_23: int = Field(..., ge=0, le=1)
+    ACEctComm_23: int = Field(..., ge=0, le=1)
+    cntdiff: int = Field(..., ge=0)
+    flrsh6to17ct: int = Field(..., ge=0, le=1)
+    ASDMed_23: int = Field(..., ge=0, le=1)
+    K8Q21: int = Field(..., ge=0, le=3)
+    ACEct_23: int = Field(..., ge=0, le=1)
+    DevDelay_23: int = Field(..., ge=0, le=1)
+    ReptGrade_23: int = Field(..., ge=0, le=1)
+    speech_23: int = Field(..., ge=0, le=1)
+    WgtConcn_23: int = Field(..., ge=0, le=3)
+    K7Q70_R: int = Field(..., ge=0, le=1)
+    K2Q32A: int = Field(..., ge=0, le=1)
+    ACE11: int = Field(..., ge=0, le=1)
+    K7Q83_R: int = Field(..., ge=0, le=1)
+    ACEmhealth_23: int = Field(..., ge=0, le=1)
+    behavior_23: int = Field(..., ge=0, le=3)
