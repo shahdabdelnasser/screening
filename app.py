@@ -104,17 +104,19 @@ def compute_community_ace(features):
 
 def compute_aceincome2(features):
 
-
     ace1 = features.get("ACE1")
 
+    if ace1 in [3, 4]:
+        return 1
 
-        if ace1 == 3 or 4:
-            return 1
-        else if ace 1 == 1 or 2:
-            return 2
-        else if ace1==99 return 99
+    elif ace1 in [1, 2]:
+        return 2
 
+    elif ace1 == 99:
+        return 99
 
+    return None
+    
 def compute_cntdiff(features):
 
     fields = [
