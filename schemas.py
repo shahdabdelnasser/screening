@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 
+
 class InputData(BaseModel):
     SchlEngage_23: int = Field(..., ge=0, le=2)
     ACE2more_23: int = Field(..., ge=0, le=1)
@@ -21,3 +22,28 @@ class InputData(BaseModel):
     K7Q83_R: int = Field(..., ge=0, le=1)
     ACEmhealth_23: int = Field(..., ge=0, le=1)
     behavior_23: int = Field(..., ge=0, le=3)
+
+    MealSkip_23: int = Field(..., ge=0, le=1)
+    GRADES: int = Field(..., ge=0, le=3)
+    MAKEFRIEND: int = Field(..., ge=0, le=1)
+    curious6to17_23: int = Field(..., ge=0, le=1)
+    PrntCncrn_23: int = Field(..., ge=0, le=3)
+    SchlMiss_23: int = Field(..., ge=0, le=3)
+    ACE6: int = Field(..., ge=0, le=1)
+    bullied_23: int = Field(..., ge=0, le=1)
+    ACEincome2_23: int = Field(..., ge=0, le=1)
+    LowInterest_23: int = Field(..., ge=0, le=1)
+    DailyAct_23: int = Field(..., ge=0, le=1)
+    binge_23: int = Field(..., ge=0, le=1)
+    ACEdrug_23: int = Field(..., ge=0, le=1)
+    SC_SEX: int = Field(..., ge=0, le=1)
+    K7Q84_R: int = Field(..., ge=0, le=1)
+    PickyEat_23: int = Field(..., ge=0, le=1)
+    MEMORYCOND: int = Field(..., ge=0, le=1)
+    SpeechSev_23: int = Field(..., ge=0, le=3)
+    K7Q85_R: int = Field(..., ge=0, le=1)
+    ACEincome_23: int = Field(..., ge=0, le=1)
+    bully_23: int = Field(..., ge=0, le=1)
+    DevDelSev_23: int = Field(..., ge=0, le=3)
+    DepresSev_23: int = Field(..., ge=0, le=3)
+    BehavSev_23: int = Field(..., ge=0, le=3)
