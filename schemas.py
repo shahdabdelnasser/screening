@@ -23,7 +23,7 @@ class InputData(BaseModel):
     MAKEFRIEND: int = Field(..., ge=0, le=1)
     curious6to17_23: int = Field(..., ge=0, le=1)
     K7Q85_R: int = Field(..., ge=0, le=1)
-    K7Q84_R  int = Field(..., ge=0, le=1)
+    K7Q84_R: int = Field(..., ge=0, le=1)
     PrntCncrn_23: int = Field(..., ge=0, le=3)
     SchlMiss_23: int = Field(..., ge=0, le=3)
     ACE6: int = Field(..., ge=0, le=1)
