@@ -19,7 +19,7 @@ class InputData(BaseModel):
     curious6to17_23: int = Field(..., ge=0, le=1)
     K7Q85_R: int = Field(..., ge=0, le=1)
     K7Q84_R: int = Field(..., ge=0, le=1)
-    
+    DiffMem_23:int
     behavior_23: int = Field(..., ge=0, le=3)
     ACE7: int
     ACE10: int
