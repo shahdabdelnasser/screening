@@ -101,6 +101,20 @@ def compute_community_ace(features):
         return 1
 
     return 2
+
+def compute_aceincome2(features):
+
+
+    ace1 = features.get("ACE1")
+
+
+        if ace1 == 3 or 4:
+            return 1
+        else if ace 1 == 1 or 2:
+            return 2
+        else if ace1==99 return 99
+
+
 def compute_cntdiff(features):
 
     fields = [
@@ -138,10 +152,20 @@ def create_features(df: pd.DataFrame):
     df["ACE2more_23"] = compute_ace2more(features)
 
     df["ACEctComm_23"] = compute_community_ace(features)
+    df["ACEincome2_23"] = compute_aceincome2(features)
+
+
+    df["ACEdrug_23"]= df["ACE9"]
+    df["ACEincome_23"] =df["ACE1"]
+    df["ACEmhealth_23"] =df["ACE8"]
+    df["MEMORYCOND"] =df["DiffMem_23"]
+
+    
+
 
     df["cntdiff"] = compute_cntdiff(features)
 
-    DROP_COLS = ["K7Q82_R", "ACE1", "ACE3","ACE4","ACE5","ACE7","ACE8","ACE9", "ACE10","DiffBreath_23","DiffSwall_23", "DiffDigest_23", "DiffPain_23","DiffMem_23","DiffWalk_23","DiffDress_23","DiffErrand_23","hearing_23","vision_23",]
+    DROP_COLS = ["K7Q82_R", "K7Q82_R" "ACE1", "ACE3","ACE4","ACE5","ACE7","ACE8","ACE9", "ACE10","DiffBreath_23","DiffSwall_23", "DiffDigest_23", "DiffPain_23","DiffMem_23","DiffWalk_23","DiffDress_23","DiffErrand_23","hearing_23","vision_23",]
     df = df.drop(columns=[c for c in DROP_COLS if c in df.columns])
 
 
