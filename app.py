@@ -16,6 +16,141 @@ from fastapi import HTTPException
 from schemas import InputData
 from validation import validate_dataframe
 
+def compute_schl_engage(features):
+
+    q82 = features.get("K7Q82_R")
+    q83 = features.get("K7Q83_R")
+
+    if q82 == 99 and q83 == 99:
+        return 99
+
+    if q82 == 1 and q83 == 1:
+        return 1
+
+    if q82 in [3, 4] or q83 in [3, 4]:
+        return 3
+
+    return 2
+def compute_flourishing_count(features):
+
+    count = 0
+
+    for field in [
+        "finishes_23",
+        "resil6to17_23",
+        "curious6to17_23"
+    ]:
+
+        value = features.get(field)
+
+        if value in [1, 2]:
+            count += 1
+
+    return count
+def compute_ace_count(features):
+
+    count = 0
+
+    # ACE1 special handling
+    ace1 = features.get("ACE1")
+
+    if ace1 in [3, 4]:
+        count += 1
+
+    # Remaining ACEs
+    for field in [
+        "ACE3",
+        "ACE4",
+        "ACE5",
+        "ACE6",
+        "ACE7",
+        "ACE8",
+        "ACE9",
+        "ACE10",
+        "ACE11"
+    ]:
+
+        if features.get(field) == 1:
+            count += 1
+
+    return count
+def compute_ace2more(features):
+
+    ace_count = compute_ace_count(features)
+
+    if ace_count == 0:
+        return 1
+
+    if ace_count == 1:
+        return 2
+
+    return 3
+def compute_community_ace(features):
+
+    count = 0
+
+    for field in [
+        "ACE7",
+        "ACE10",
+        "ACE11"
+    ]:
+
+        if features.get(field) == 1:
+            count += 1
+
+    if count == 0:
+        return 1
+
+    return 2
+def compute_cntdiff(features):
+
+    fields = [
+        "DiffBreath_23",
+        "DiffSwall_23",
+        "DiffDigest_23",
+        "DiffPain_23",
+        "DiffMem_23",
+        "DiffWalk_23",
+        "DiffDress_23",
+        "DiffErrand_23",
+        "hearing_23",
+        "vision_23"
+    ]
+
+    count = 0
+
+    for field in fields:
+
+        if features.get(field) == 1:
+            count += 1
+
+    return count
+    
+def create_features(df: pd.DataFrame) 
+
+    df = df.copy()
+
+    df["SchlEngage_23"] = compute_schl_engage(features)
+
+    df["flrsh6to17ct"] = compute_flourishing_count(features)
+
+    df["ACEct_23"] = compute_ace_count(features)
+
+    df["ACE2more_23"] = compute_ace2more(features)
+
+    df["ACEctComm_23"] = compute_community_ace(features)
+
+    df["cntdiff"] = compute_cntdiff(features)
+    df["K7Q84_R"] = df["finishes_23"]
+    df["K7Q85_R"] = df["resil6to17_23"]
+
+    DROP_COLS = ["K7Q82_R", "ACE1", "ACE3","ACE4","ACE5","ACE7","ACE8","ACE9", "ACE10","DiffBreath_23","DiffSwall_23", "DiffDigest_23", "DiffPain_23","DiffMem_23","DiffWalk_23","DiffDress_23","DiffErrand_23","hearing_23","vision_23","finishes_23"]
+    df = df.drop(columns=[c for c in DROP_COLS if c in df.columns])
+
+
+    return df
+
+
 app = FastAPI()
 
 # Load pipeline
