@@ -2,16 +2,10 @@ from pydantic import BaseModel, Field
 
 
 class InputData(BaseModel):
-    SchlEngage_23: int = Field(..., ge=0, le=2)
-    ACE2more_23: int = Field(..., ge=0, le=1)
     AnxietSev_23: int = Field(..., ge=0, le=3)
     learning_23: int = Field(..., ge=0, le=1)
-    ACEctComm_23: int = Field(..., ge=0, le=1)
-    cntdiff: int = Field(..., ge=0)
-    flrsh6to17ct: int = Field(..., ge=0, le=1)
     ASDMed_23: int = Field(..., ge=0, le=1)
     K8Q21: int = Field(..., ge=0, le=3)
-    ACEct_23: int = Field(..., ge=0, le=1)
     DevDelay_23: int = Field(..., ge=0, le=1)
     ReptGrade_23: int = Field(..., ge=0, le=1)
     speech_23: int = Field(..., ge=0, le=1)
@@ -37,11 +31,9 @@ class InputData(BaseModel):
     binge_23: int = Field(..., ge=0, le=1)
     ACEdrug_23: int = Field(..., ge=0, le=1)
     SC_SEX: int = Field(..., ge=0, le=1)
-    K7Q84_R: int = Field(..., ge=0, le=1)
     PickyEat_23: int = Field(..., ge=0, le=1)
     MEMORYCOND: int = Field(..., ge=0, le=1)
     SpeechSev_23: int = Field(..., ge=0, le=3)
-    K7Q85_R: int = Field(..., ge=0, le=1)
     ACEincome_23: int = Field(..., ge=0, le=1)
     bully_23: int = Field(..., ge=0, le=1)
     DevDelSev_23: int = Field(..., ge=0, le=3)
