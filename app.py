@@ -126,7 +126,7 @@ def compute_cntdiff(features):
 
     return count
     
-def create_features(df: pd.DataFrame) 
+def create_features(df: pd.DataFrame):
 
     df = df.copy()
 
