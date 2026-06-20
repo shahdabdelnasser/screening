@@ -21,7 +21,20 @@ class InputData(BaseModel):
     K7Q84_R: int = Field(..., ge=0, le=1)
     
     behavior_23: int = Field(..., ge=0, le=3)
-    
+    ACE7: int
+    ACE10: int
+    ACE11:int
+
+    ACE9:int
+    ACE1:int
+    ACE6:int
+    ACE3:int
+    ACE4: int
+    ACE5:int
+    ACE6:int
+    ACE7:int
+    ACE8:int
+    ACE9:int
 
     MealSkip_23: int = Field(..., ge=0, le=1)
     GRADES: int = Field(..., ge=0, le=3)
