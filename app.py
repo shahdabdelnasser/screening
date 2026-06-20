@@ -163,22 +163,7 @@ features = bundle["features"]
 def predict(data: InputData):
 
     df = pd.DataFrame([data.model_dump()])
-
-    print("\n========== RAW INPUT ==========")
-    print(df.columns.tolist())
-    print(df.head())
-
     df = create_features(df)
-
-    print("\n========== AFTER FEATURE ENGINEERING ==========")
-    print(df.columns.tolist())
-    print(df.head())
-
-    print("\nMissing vs expected:")
-    missing = set(features) - set(df.columns)
-    extra = set(df.columns) - set(features)
-    print("Missing:", missing)
-    print("Extra:", extra)
     
     ok, result = validate_dataframe(df, features)
 
