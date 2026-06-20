@@ -57,3 +57,15 @@ class InputData(BaseModel):
     DevDelSev_23: int = Field(..., ge=0, le=3)
     DepresSev_23: int = Field(..., ge=0, le=3)
     BehavSev_23: int = Field(..., ge=0, le=3)
+
+
+    DiffBreath_23: int
+    DiffPain_23: int 
+    DiffMem_23: int
+    DiffWalk_23: int
+    DiffDress_23: int 
+    DiffErrand_23: int
+    hearing_23:int
+    vision_23: int
+    DiffDigest_23: int
+    DiffSwall_23: int
