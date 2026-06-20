@@ -129,7 +129,7 @@ def compute_cntdiff(features):
 def create_features(df: pd.DataFrame):
 
     df = df.copy()
-
+    features = df.iloc[0].to_dict()
     df["SchlEngage_23"] = compute_schl_engage(features)
 
     df["flrsh6to17ct"] = compute_flourishing_count(features)
@@ -163,6 +163,7 @@ features = bundle["features"]
 def predict(data: InputData):
 
     df = pd.DataFrame([data.model_dump()])
+    df = create_features(df)
     ok, result = validate_dataframe(df, features)
 
     if not ok:
