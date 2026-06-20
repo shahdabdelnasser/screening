@@ -142,7 +142,6 @@ def create_features(df: pd.DataFrame):
 
     df["cntdiff"] = compute_cntdiff(features)
     df["K7Q84_R"] = df["finishes_23"]
-    df["K7Q85_R"] = df["resil6to17_23"]
 
     DROP_COLS = ["K7Q82_R", "ACE1", "ACE3","ACE4","ACE5","ACE7","ACE8","ACE9", "ACE10","DiffBreath_23","DiffSwall_23", "DiffDigest_23", "DiffPain_23","DiffMem_23","DiffWalk_23","DiffDress_23","DiffErrand_23","hearing_23","vision_23","finishes_23"]
     df = df.drop(columns=[c for c in DROP_COLS if c in df.columns])
