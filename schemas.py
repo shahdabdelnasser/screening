@@ -16,11 +16,13 @@ class InputData(BaseModel):
     K7Q83_R: int = Field(..., ge=0, le=1)
     ACEmhealth_23: int = Field(..., ge=0, le=1)
     behavior_23: int = Field(..., ge=0, le=3)
+    
 
     MealSkip_23: int = Field(..., ge=0, le=1)
     GRADES: int = Field(..., ge=0, le=3)
     MAKEFRIEND: int = Field(..., ge=0, le=1)
     curious6to17_23: int = Field(..., ge=0, le=1)
+    K7Q85_R: int = Field(..., ge=0, le=1)
     PrntCncrn_23: int = Field(..., ge=0, le=3)
     SchlMiss_23: int = Field(..., ge=0, le=3)
     ACE6: int = Field(..., ge=0, le=1)
