@@ -12,6 +12,7 @@ from pydantic import BaseModel
 import joblib
 import pandas as pd
 from fastapi import HTTPException
+import numpy as np
 
 from schemas import InputData
 from validation import validate_dataframe
