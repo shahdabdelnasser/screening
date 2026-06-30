@@ -211,3 +211,31 @@ def predict(data: InputData):
         "prediction": pred,
         "probability": float(proba)
     }
+@app.post("/predict/predict")
+def predict(data: InputData):
+
+    df = pd.DataFrame([data.model_dump()])
+    df = create_features(df)
+    df = df.replace([90, 95, 99], np.nan)
+    
+    ok, result = validate_dataframe(df, features)
+
+    if not ok:
+        raise HTTPException(
+            status_code=400,
+            detail=result["error"]
+        )
+
+    df = result  # validated dataframe
+
+    # preprocessing
+    X = scaler.transform(df) # type: ignore
+
+    # prediction
+    proba = model.predict_proba(X)[0, 1] # type: ignore
+    pred = int(proba > 0.5)
+    
+    return {
+        "prediction": pred,
+        "probability": float(proba)
+    }
